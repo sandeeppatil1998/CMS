@@ -1,0 +1,282 @@
+<!--
+=========================================================
+* Material Dashboard 2 - v3.0.5
+=========================================================
+
+* Product Page: https://www.creative-tim.com/product/material-dashboard
+* Copyright 2023 Creative Tim (https://www.creative-tim.com)
+* Licensed under MIT (https://www.creative-tim.com/license)
+* Coded by Creative Tim
+
+=========================================================
+
+* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+-->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
+  <link rel="icon" type="image/png" href="../assets/img/favicon.png">
+  <title>
+    C M S
+  </title>
+  <!--     Fonts and icons     -->
+  <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+  <!-- Nucleo Icons -->
+  <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+  <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
+  <!-- Font Awesome Icons -->
+  <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+  <!-- CSS Files -->
+  <link id="pagestyle" href="../assets/css/material-dashboard.css?v=3.0.5" rel="stylesheet" />
+  <!-- Nepcha Analytics (nepcha.com) -->
+  <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+  <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
+
+
+  <!-- new code added (experiment) -->
+
+  <link rel="shortcut icon" type="image/x-icon" href="../assets1/img/favicon.png">
+
+    <link rel="stylesheet" href="../assets1/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="../assets1/css/animate.css">
+
+    <link rel="stylesheet" href="../assets1/plugins/select2/css/select2.min.css">
+
+    <link rel="stylesheet" href="../assets1/css/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="../assets1/plugins/fontawesome/css/fontawesome.min.css">
+    <link rel="stylesheet" href="../assets1/plugins/fontawesome/css/all.min.css">
+
+    <link rel="stylesheet" href="../assets1/css/style.css">
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    
+
+
+
+
+
+
+</head>
+
+<body class="g-sidenav-show  bg-gray-200">
+
+    <!-- SideNav -->
+
+    <%- include('../../partials/doctor/d_todayappointment_sidenav'); -%>
+
+  <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
+   
+    <!-- Navbar -->
+
+    <%- include('../../partials/navbar'); -%>
+   
+    <div class="container-fluid py-4">
+      <div class="row">
+        <div class="col-12">
+          <div class="card my-4">
+            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+                <h6 class="text-white text-capitalize ps-3">Previous Appointment List</h6>
+                <!-- <span class="badge badge-sm bg-gradient-success" style="position: absolute; top: 34%; right: 7%;">Add Patient</span> -->
+              </div>
+            </div>
+            <div class="card-body px-0 pb-2">
+              <div class="table-responsive p-0">
+                <div class="card-header pb-0 px-3" style="display: flex; justify-content: space-between;">
+                    <div>
+                        <h6 class="mb-0">Appointment Information</h6>
+                    </div>
+                    <div style="margin-right: 3%;">
+                        <button class="badge badge-sm bg-gradient-success" style="font-size: large;" onclick="history.back()">Back</button>
+                    </div>
+                </div>
+                <% if(allprescription.length == 0) {%>
+                  <h1 style="text-align: center; color: #c9c2c2;"> No Previous Records</h1>
+                <% }else{ %>
+                  <% for(i=0;i<allprescription.length;i++){ %>
+                    <div class="card-body pt-4 p-3">
+                        <ul class="list-group">
+                          <li class="list-group-item border-0  p-4 mb-2 bg-gray-100 border-radius-lg">
+                            <div class="d-flex" style="display: flex; justify-content: space-between;">
+                                <div>
+                                <h5>Patient ID: <input type="text" name="" id="" style="border: none; background-color: #f8f9fa;" value="<%= allprescription[i].patient_id %>" readonly></h5>
+                                </div>
+                                <div>
+                                <h5>Patient Name: <input type="text" name="" id="" style="border: none; background-color: #f8f9fa;" value="<%= allprescription[i].patient_name%>" readonly></h5> 
+                                </div>
+                                <div>
+                                <h5>Date: <input type="text" name="" id="" style="border: none; background-color: #f8f9fa;" value="<%= (allprescription[i].prescription_date).toString().slice(0,15) %>" readonly></h5>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="d-flex" style="display: flex; justify-content: space-between;">
+                                <div>
+                                    <h5>Appointment ID: <input type="text" name="" id="" style="border: none; background-color: #f8f9fa;" value="<%= allprescription[i].appointment_id%>" readonly></h5>
+                                </div>
+                                <div >
+                                <h5>Doctor Name: <input type="text" name="" id="" style="border: none; background-color: #f8f9fa;" value="<%= allprescription[i].doctor_name%>" readonly></h5>  
+                                </div>
+                                <div>
+                                  <h5>compliant: <input type="text" name="" id="" style="border: none; background-color: #f8f9fa;" value="<%= allprescription[i].complain%>" readonly></h5>
+                              </div>
+                            </div>
+                            <div style="display:flex; justify-content: space-between;">
+                              <div style="margin-top: 2%;">
+                                <p><label for="notes" style="font-weight: 600; color: black;">Notes:</label></p>
+                              <textarea id="w3review" name="w3review" style="height: 150px; width: 300px; border: none;" readonly><%= allprescription[i].note %></textarea>
+                              </div>
+                              <div style="margin-top: 2%;">
+                                <p><label for="medcine" style="font-weight: 600; color: black;">Medicine:</label></p>
+                              <textarea id="w3review" name="w3review" style="height: 150px; width: 300px; border: none;" readonly><%= allprescription[i].medicine %></textarea>
+                              </div>
+                              <div style="margin-top: 2%;">
+                                <p><label for="side_effects" style="font-weight: 600; color: black;">Side Effects:</label></p>
+                              <textarea id="w3review" name="w3review" style="height: 150px; width: 300px; border: none;" readonly><%= allprescription[i].issue %></textarea>
+                              </div>
+                            </div>
+                          </li>
+                        </ul>
+                    </div>
+                  <% } %>
+                <% } %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div> 
+    </div>
+  </main>
+  <div class="fixed-plugin">
+    <!-- <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
+      <i class="material-icons py-2">settings</i>
+    </a> -->
+    <div class="card shadow-lg">
+      <div class="card-header pb-0 pt-3">
+        <div class="float-start">
+          <h5 class="mt-3 mb-0">Material UI Configurator</h5>
+          <p>See our dashboard options.</p>
+        </div>
+        <div class="float-end mt-4">
+          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
+            <i class="material-icons">clear</i>
+          </button>
+        </div>
+        <!-- End Toggle Button -->
+      </div>
+      <hr class="horizontal dark my-1">
+      <div class="card-body pt-sm-3 pt-0">
+        <!-- Sidebar Backgrounds -->
+        <div>
+          <h6 class="mb-0">Sidebar Colors</h6>
+        </div>
+        <a href="javascript:void(0)" class="switch-trigger background-color">
+          <div class="badge-colors my-2 text-start">
+            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
+            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
+          </div>
+        </a>
+        <!-- Sidenav Type -->
+        <div class="mt-3">
+          <h6 class="mb-0">Sidenav Type</h6>
+          <p class="text-sm">Choose between 2 different sidenav types.</p>
+        </div>
+        <div class="d-flex">
+          <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
+          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
+          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
+        </div>
+        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
+        <!-- Navbar Fixed -->
+        <div class="mt-3 d-flex">
+          <h6 class="mb-0">Navbar Fixed</h6>
+          <div class="form-check form-switch ps-0 ms-auto my-auto">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
+          </div>
+        </div>
+        <hr class="horizontal dark my-3">
+        <div class="mt-2 d-flex">
+          <h6 class="mb-0">Light / Dark</h6>
+          <div class="form-check form-switch ps-0 ms-auto my-auto">
+            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  
+
+
+  <!--   Core JS Files   -->
+  <script src="../assets/js/core/popper.min.js"></script>
+  <script src="../assets/js/core/bootstrap.min.js"></script>
+  <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
+  <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+  <script>
+    var win = navigator.platform.indexOf('Win') > -1;
+    if (win && document.querySelector('#sidenav-scrollbar')) {
+      var options = {
+        damping: '0.5'
+      }
+      Scrollbar.init(document.querySelector('#sidenav-scrollbar'), options);
+    }
+  </script>
+  <!-- Github buttons -->
+  <script async defer src="https://buttons.github.io/buttons.js"></script>
+  <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
+  <script src="../assets/js/material-dashboard.min.js?v=3.0.5"></script>
+
+
+
+
+  <!-- new code added experiment -->
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+  <script src="../assets1/js/jquery-3.6.0.min.js"></script>
+
+    <script src="../assets1/js/feather.min.js"></script>
+
+    <script src="../assets1/js/jquery.slimscroll.min.js"></script>
+
+    <script src="../assets1/js/jquery.dataTables.min.js"></script>
+    <script src="../assets1/js/dataTables.bootstrap4.min.js"></script>
+
+    <script src="../assets1/js/bootstrap.bundle.min.js"></script>
+
+    <script src="../assets1/plugins/select2/js/select2.min.js"></script>
+
+    <script src="../assets1/plugins/sweetalert/sweetalert2.all.min.js"></script>
+    <script src="../assets1/plugins/sweetalert/sweetalerts.min.js"></script>
+
+    <script src="../assets1/js/script.js"></script>
+
+
+</body>
+
+</html>
