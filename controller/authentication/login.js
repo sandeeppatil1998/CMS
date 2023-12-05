@@ -79,16 +79,16 @@ module.exports.login = (req,res) => {
         if(err){
           console.log(err);
           req.session.message="Something went wrong"
-          res.json({message:"Something went wrong"});
+        //   res.json({message:"Something went wrong"});
           res.redirect('/');
         }
         else{
             console.log("result",results);
-            
             if(results.length == 0 || !(await bcrypt.compare(password1, results[0].password))){
                 req.session.message="Invalid Email or Password";
                 console.log("Invalid Email or Password");
-                res.redirect('/',{status:"error",message:"Invalid Email or Password"});
+                // res.redirect('/',{message:"Invalid Email or Password"});
+                res.redirect("/")
             } else {
                 if(results[0].is_active == 0){
                     req.session.message = "Please activate your account";

@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.5
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -96,7 +83,6 @@
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
                 <h6 class="text-white text-capitalize ps-3">All Patients</h6>
-                <!-- <input style="position: absolute; top: 30%; right: 22%;" type="text"/></input> -->
                 <div class="form-group" style="margin-top: 30px; position: absolute; top: -20%; right: 5%;">
                   <button type="button" class="btn" style="color: white; background-image: linear-gradient(195deg, #78052c 0%, #D81B60 100%) !important;" data-toggle="modal" data-target="#exampleModal">
                        Add Patient
@@ -105,7 +91,7 @@
                 <!-- <span class="badge badge-sm bg-gradient-success" style="position: absolute; top: 34%; right: 7%;">Add Patient</span> -->
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
+            <div class="card-body p-2 pb-2">
               <div class="table-responsive p-0">
                 <table class="table align-items-center datanew mb-0">
                     <thead>
@@ -130,11 +116,11 @@
                                 <td><%=allpatients[i].mobile%></td>
                                 <td><%=allpatients[i].address%></td>
                                 <td>
-                                    <a href="/d_bookappointment/<%=allpatients[i].id%>"><button type="button" class="btn btn-primary" >BOOK</button></a>
+                                    <a href="/d_bookappointment/<%=allpatients[i].id%>" class="btn btn-primary color-white" ><i class="fa-solid fa-book" style="color:#fff" title="Book Appointments"></i></a>
                                         
-                                    <a href="/d_patientpreviousappointment/<%=allpatients[i].id%>" class="btn btn-primary" style="color:#fff" >View All appointments</a>
+                                    <a href="/d_patientpreviousappointment/<%=allpatients[i].id%>" class="btn btn-primary" style="color:#fff" ><i class="fa-solid fa-calendar-check" title="View all Appointments"></i></a>
 
-                                    <a href="/d_viewpatientprofile/<%=allpatients[i].id%>" class="btn btn-primary" style="color:#fff" >View</a>
+                                    <a href="/d_viewpatientprofile/<%=allpatients[i].id%>" class="btn btn-primary" style="color:#fff" ><i class="fa-solid fa-user" title="View Profile"></i></a>
                                 </td>
                             </tr>
                         <%}%>

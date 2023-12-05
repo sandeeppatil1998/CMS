@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.5
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -72,71 +59,42 @@
 
 
     <style>
-        .form-group {
-          margin-bottom: 1rem;
-        }
-        
-        label {
-          display: block;
-          margin-bottom: 0.5rem;
-          font-weight: 600;
-        }
-
-        input{
-            display: block;
-          width: 100%;
-          height: calc(2.25rem + 2px);
-          padding: 0.375rem 0.75rem;
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: 1.5;
-          color: #495057;
-          background-color: #fff;
-          background-clip: padding-box;
-          border: 1px solid #ced4da;
-          border-radius: 0.25rem;
-          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-        
-        select {
-          display: block;
-          width: 100%;
-          height: calc(2.25rem + 2px);
-          padding: 0.375rem 0.75rem;
-          font-size: 1rem;
-          font-weight: 400;
-          line-height: 1.5;
-          color: #495057;
-          background-color: #fff;
-          background-clip: padding-box;
-          border: 1px solid #ced4da;
-          border-radius: 0.25rem;
-          transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-        }
-        
-        select:focus {
-          color: #495057;
-          background-color: #fff;
-          border-color: #80bdff;
-          outline: 0;
-          box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-        }
-        
-        select option {
-          font-weight: 400;
-          color: #212529;
-          background-color: #fff;
-          padding: 0.5rem;
-        }
-        
-        select option:hover {
-          background-color: #e9ecef;
-        }
-        
-        select option:selected {
-          background-color: #007bff;
-          color: #fff;
-        }
+      .form-group {
+        margin-bottom: 1rem;
+        padding: 0 30px;
+      }
+  
+      label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 600;
+      }
+  
+      input,
+      select {
+        display: block;
+        width: 100%;
+        height: calc(2.25rem + 2px);
+        padding: 0.375rem 0.75rem;
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.5;
+        color: #495057;
+        background-color: #fff;
+        background-clip: padding-box;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+        transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+      }
+  
+      textarea {
+        resize: vertical;
+      }
+  
+      .form-error {
+        color: red;
+        font-size: 80%;
+      }
     </style>
 
 
@@ -156,131 +114,73 @@
 
    <%- include('../../partials/navbar'); -%>
    
-    <div class="container-fluid py-4">
-      <div class="row">
-        <div class="col-12">
-          <div class="card my-4">
-            <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
-              <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">All Patients</h6>
-                <!-- <input style="position: absolute; top: 30%; right: 22%;" type="text"/></input> -->
-                
-                <!-- <span class="badge badge-sm bg-gradient-success" style="position: absolute; top: 34%; right: 7%;">Add Patient</span> -->
-              </div>
-            </div>
-            <div class="card-body px-0 pb-2" style="min-height: 50vh;">
-              <div class="table-responsive p-0">
-                <form action="/d_bookappointment" method="post">
-                    <div style="margin-top: 4%;">
-                      <div style="display: flex; justify-content: space-around;">
-                        <input type="hidden" name="patient_id" value="<%= patientId %>">
-                        <input type="hidden" name="doctor_id" value="<%= doctors[0].id %>"> 
-                        
-                        
-
-
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="date">Choose a date:</label>
-                                    <input type="date" id="date" name="appointment_date">
-                            </div>
-                        </div>
-                        
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="dropdown1">Choose Slots:</label>
-                                <select id="dropdown1" name="appointment_time" >
-                                    <% for(var i=0; i<timeslots.length; i++) { %>
-                                        <option value="<%= timeslots[i].id %>"><%= timeslots[i].time %></option>
-                                    <% } %>
-                                </select>
-                            </div>
-                        </div>
-
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group">
-                                <label for="note">Note :</label>
-                                <input type="text" id="note" name="note" requiredminlength="4"  size="40">
-                            </div>
-                        </div>
-                    </div>
-                        <div class="col-lg-3 col-sm-6 col-12">
-                            <div class="form-group" style="margin-top: 33px; margin-left: 180%;">
-                               <button class="btn btn-primary" type="submit" >Book</button>
-                            </div> 
-                        </div>
-                        
-
-                    </div>
-                </form>
-              </div>
+   <div class="container-fluid py-4">
+    <div class="row">
+      <div class="col-12">
+        <div class="card my-4">
+          <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
+            <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
+              <h6 class="text-white text-capitalize ps-3">All Patients</h6>
             </div>
           </div>
-        </div>
-      </div> 
-    </div>
-  </main>
-  <div class="fixed-plugin">
-    <!-- <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">settings</i>
-    </a> -->
-    <div class="card shadow-lg">
-      <div class="card-header pb-0 pt-3">
-        <div class="float-start">
-          <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-          <p>See our dashboard options.</p>
-        </div>
-        <div class="float-end mt-4">
-          <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-            <i class="material-icons">clear</i>
-          </button>
-        </div>
-        <!-- End Toggle Button -->
-      </div>
-      <hr class="horizontal dark my-1">
-      <div class="card-body pt-sm-3 pt-0">
-        <!-- Sidebar Backgrounds -->
-        <div>
-          <h6 class="mb-0">Sidebar Colors</h6>
-        </div>
-        <a href="javascript:void(0)" class="switch-trigger background-color">
-          <div class="badge-colors my-2 text-start">
-            <span class="badge filter bg-gradient-primary active" data-color="primary" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-dark" data-color="dark" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-info" data-color="info" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-success" data-color="success" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-warning" data-color="warning" onclick="sidebarColor(this)"></span>
-            <span class="badge filter bg-gradient-danger" data-color="danger" onclick="sidebarColor(this)"></span>
-          </div>
-        </a>
-        <!-- Sidenav Type -->
-        <div class="mt-3">
-          <h6 class="mb-0">Sidenav Type</h6>
-          <p class="text-sm">Choose between 2 different sidenav types.</p>
-        </div>
-        <div class="d-flex">
-          <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark" onclick="sidebarType(this)">Dark</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent" onclick="sidebarType(this)">Transparent</button>
-          <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white" onclick="sidebarType(this)">White</button>
-        </div>
-        <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-        <!-- Navbar Fixed -->
-        <div class="mt-3 d-flex">
-          <h6 class="mb-0">Navbar Fixed</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed" onclick="navbarFixed(this)">
-          </div>
-        </div>
-        <hr class="horizontal dark my-3">
-        <div class="mt-2 d-flex">
-          <h6 class="mb-0">Light / Dark</h6>
-          <div class="form-check form-switch ps-0 ms-auto my-auto">
-            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version" onclick="darkMode(this)">
+          <div class="card-body px-0 pb-2" style="min-height: 50vh;">
+            <div class="table-responsive p-0">
+              <form action="/d_bookappointment" method="post">
+                <div style="margin-top: 4%;">
+                  <div class="row" style="">
+                    <div class="col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="date">Choose a date:</label>
+                        <input type="date" id="date" name="appointment_date" class="form-control">
+                      </div>
+                    </div>
+  
+                    <div class="col-md-6 col-sm-6 col-12">
+                      <div class="form-group">
+                        <label for="dropdown1">Choose Slots:</label>
+                        <select id="dropdown1" name="appointment_time" class="form-control">
+                          <option value="" disabled selected>Select a slot</option>
+                          <% for(var i=0; i<timeslots.length; i++) { %>
+                          <option value="<%= timeslots[i].id %>"><%= timeslots[i].time %></option>
+                          <% } %>
+                        </select>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group">
+                        <label for="note">Note :</label>
+                        <textarea id="note" name="note" class="form-control" required minlength="4" size="40"></textarea>
+                      </div>
+                    </div>
+                  </div>
+  
+                  <div class="row">
+                    <div class="col-12">
+                      <div class="form-group text-center">
+                        <button class="btn btn-primary" type="submit">Book</button>
+                      </div>
+                    </div>
+                  </div>
+  
+                </div>
+              </form>
+              <div class="text-center">
+                <button class="btn btn-primary "
+                    style="font-size: large;" onclick="history.back()">Back</button>
+            </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  
+  
+  </main>
+ 
 
 
 

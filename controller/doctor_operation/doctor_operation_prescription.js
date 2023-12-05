@@ -47,7 +47,7 @@ module.exports.doctorpatientpreviousappointmnetdetails = (req,res) => {
     const doctorId = decoded.ID;
     console.log("doctorId",doctorId);
   
-    conn.query("Select pit.appointment_id,pit.patient_id,pti.issue, ut.name as patient_name,bb.name as doctor_name,pit.note,pit.medicine,pit.prescription_date from prescription_tbl as pit, user__tbl as ut, user__tbl as bb,patient_issue_tbl as pti where pit.patient_id=pti.patient_id and pit.patient_id= ut.id and pit.doctor_id= bb.id and pit.patient_id = ? and pit.doctor_id= ?",[patient_id,doctorId], (err,results) => {
+    conn.query("Select pit.appointment_id,pit.patient_id,pti.issue,pit.side_effect,ut.name as patient_name,bb.name as doctor_name,pit.note,pit.medicine,pit.prescription_date from prescription_tbl as pit, user__tbl as ut, user__tbl as bb,patient_issue_tbl as pti where pit.patient_id=pti.patient_id and pit.patient_id= ut.id and pit.doctor_id= bb.id and pit.patient_id = ? and pit.doctor_id= ?",[patient_id,doctorId], (err,results) => {
         if(err){
         console.log(err);
         res.json({message:"Something went wrong"});
@@ -86,7 +86,7 @@ module.exports.prescription = (req,res) => {
           console.log(err);
         }else{
           console.log("RESULTS1::::    ", results);
-          conn.query("insert into prescription_tbl (appointment_id,patient_id,doctor_id,side_effects,note,medicine,prescription_date) values (?,?,?,?,?,?,?)",[appointment_id,patient_id,doctor_id,issue_id,note,medicine_list,date], (err,results1) => {
+          conn.query("insert into prescription_tbl (appointment_id,patient_id,doctor_id,side_effects,note,medicine,prescription_date,side_effect) values (?,?,?,?,?,?,?,?)",[appointment_id,patient_id,doctor_id,issue_id,note,medicine_list,date,issue], (err,results1) => {
             if(err){
               console.log(err);
             }else{

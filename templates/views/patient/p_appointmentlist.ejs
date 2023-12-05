@@ -8,7 +8,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    C M S
+    C M S | Appointments
   </title>
   <!--     Fonts and icons     -->
   <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
@@ -82,13 +82,13 @@
           <div class="card my-4">
             <div class="card-header p-0 position-relative mt-n4 mx-3 z-index-2">
               <div class="bg-gradient-primary shadow-primary border-radius-lg pt-4 pb-3">
-                <h6 class="text-white text-capitalize ps-3">All Patients</h6>
+                <h6 class="text-white text-capitalize ps-3">Ovreall Appointments List</h6>
                 <!-- <input style="position: absolute; top: 30%; right: 22%;" type="text"/></input> -->
                 
                 <!-- <span class="badge badge-sm bg-gradient-success" style="position: absolute; top: 34%; right: 7%;">Add Patient</span> -->
               </div>
             </div>
-            <div class="card-body px-0 pb-2">
+            <div class="card-body px-2 pb-2">
               <div class="table-responsive p-0">
                 
                 <div class="form-group d-flex float-end" style="margin: 10px 10px; gap: 10px;">
@@ -103,7 +103,7 @@
                   
                     <thead>
                         <tr>
-                            <th>Appointment Id</th>
+                        <th>Appointment Id</th>
                         <th>Patient ID</th>
                         <th>Patient Name</th>
                         <th>Doctor Name</th>
@@ -112,8 +112,7 @@
                         <th>Action</th>
                         </tr>
                     </thead>
-                    <tbody>
-                        
+                    <tbody>  
                         <%for(var i=0;i<allpatients.length;i++){%>
                             <tr>
                                 <td><%=allpatients[i].id%></td>

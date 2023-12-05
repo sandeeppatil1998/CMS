@@ -1,17 +1,4 @@
-<!--
-=========================================================
-* Material Dashboard 2 - v3.0.5
-=========================================================
 
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://www.creative-tim.com/license)
-* Coded by Creative Tim
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
--->
 <!DOCTYPE html>
 <html lang="en">
 
@@ -21,7 +8,7 @@
     <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
     <link rel="icon" type="image/png" href="../assets/img/favicon.png">
     <title>
-        C M S
+        C M S | Previous Appointment
     </title>
     <!--     Fonts and icons     -->
     <link rel="stylesheet" type="text/css"
@@ -70,18 +57,18 @@
         crossorigin="anonymous"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
-
-
-
-
-
+    <style>
+       .list-group .list-group-item:nth-child(even) {
+    background-color: #E22E6D; /* Alternate color for even rows */
+}
+.list-group .list-group-item:nth-child(odd) {
+    background-color: #2D2D31; /* Alternate color for odd rows */
+}
+    </style>
 </head>
 
 <body class="g-sidenav-show  bg-gray-200">
-
     <!-- SideNav -->
-
     <%- include('../../partials/patient/p_appointment_sidenav'); -%>
 
         <main class="main-content position-relative max-height-vh-100 h-100 border-radius-lg ">
@@ -108,7 +95,7 @@
                                                 <h6 class="mb-0">Appointment Information</h6>
                                             </div>
                                             <div style="margin-right: 3%;">
-                                                <button class="badge badge-sm bg-gradient-success"
+                                                <button class="btn btn-primary"
                                                     style="font-size: large;" onclick="history.back()">Back</button>
                                             </div>
                                         </div>
@@ -118,59 +105,41 @@
                                                 <% for(i=0;i<allprescription.length;i++){ %>
                                                     <div class="card-body pt-4 p-3">
                                                         <ul class="list-group">
-                                                            <li
-                                                                class="list-group-item border-0  p-4 mb-2 bg-gray-100 border-radius-lg">
-                                                                <div class="d-flex"
-                                                                    style="display: flex; justify-content: space-between;">
-                                                                    <div>
-                                                                        <h5>Patient ID: <input type="text" name="" id=""
-                                                                                style="border: none; background-color: #f8f9fa;"
-                                                                                value="<%= allprescription[i].patient_id %>"
-                                                                                readonly></h5>
+                                                            <li class="list-group-item border-0 p-4 mb-2 bg-gray-100 border-radius-lg">
+                                                                <div class="d-flex flex-column flex-sm-row justify-content-between" >
+                                                                    <div class="mb-2 mb-sm-0">
+                                                                        <h5 class="mb-0">Patient ID:</h5>
+                                                                        <input type="text" class="form-control" style="background: none;" value="<%= allprescription[i].patient_id %>" readonly>
                                                                     </div>
-                                                                    <div>
-                                                                        <h5>Patient Name: <input type="text" name=""
-                                                                                id=""
-                                                                                style="border: none; background-color: #f8f9fa;"
-                                                                                value="<%= allprescription[i].patient_name%>"
-                                                                                readonly></h5>
+                                                                    <div class="mb-2 mb-sm-0">
+                                                                        <h5 class="mb-0">Patient Name:</h5>
+                                                                        <input type="text" class="form-control" style="background: none;" value="<%= allprescription[i].patient_name %>" readonly>
                                                                     </div>
-                                                                    <div>
-                                                                        <h5>Date: <input type="text" name="" id=""
-                                                                                style="border: none; background-color: #f8f9fa;"
-                                                                                value="<%= (allprescription[i].prescription_date).toString().slice(0,15) %>"
-                                                                                readonly></h5>
+                                                                    <div class="mb-2 mb-sm-0">
+                                                                        <h5 class="mb-0">Date:</h5>
+                                                                        <input type="text" class="form-control" style="background: none;" value="<%= (allprescription[i].prescription_date).toString().slice(0, 15) %>" readonly>
                                                                     </div>
                                                                 </div>
                                                                 <br>
-                                                                <div class="d-flex"
-                                                                    style="display: flex; justify-content: space-between;">
-                                                                    <div>
-                                                                        <h5>Appointment ID: <input type="text" name=""
-                                                                                id=""
-                                                                                style="border: none; background-color: #f8f9fa;"
-                                                                                value="<%= allprescription[i].id%>"
-                                                                                readonly></h5>
+                                                                <div class="d-flex flex-column flex-sm-row justify-content-between" >
+                                                                    <div class="mb-2 mb-sm-0">
+                                                                        <h5 class="mb-0">Appointment ID:</h5>
+                                                                        <input type="text" class="form-control" style="background: none;" value="<%= allprescription[i].id %>" readonly>
                                                                     </div>
-                                                                    <div>
-                                                                        <h5>Doctor Name: <input type="text" name=""
-                                                                                id=""
-                                                                                style="border: none; background-color: #f8f9fa;"
-                                                                                value="<%= allprescription[i].doctor_name%>"
-                                                                                readonly></h5>
+                                                                    <div class="mb-2 mb-sm-0">
+                                                                        <h5 class="mb-0">Doctor Name:</h5>
+                                                                        <input type="text" class="form-control" style="background: none;" value="<%= allprescription[i].doctor_name %>" readonly>
                                                                     </div>
-                                                                    <div>
-                                                                        <h5>compliant: <input type="text" name="" id=""
-                                                                                style="border: none; background-color: #f8f9fa;"
-                                                                                value="<%= allprescription[i].complain%>"
-                                                                                readonly></h5>
+                                                                    <div class="mb-2 mb-sm-0">
+                                                                        <h5 class="mb-0">Compliant:</h5>
+                                                                        <input type="text" class="form-control" style="background: none;" value="<%= allprescription[i].complain %>" readonly>
                                                                     </div>
                                                                 </div>
                                                             </li>
                                                         </ul>
                                                     </div>
-                                                    <% } %>
-                                                        <% } %>
+                                                <% } %>
+                                            <% } %>
                                     </div>
                                 </div>
                             </div>
@@ -178,82 +147,6 @@
                     </div>
                 </div>
         </main>
-        <div class="fixed-plugin">
-            <!-- <a class="fixed-plugin-button text-dark position-fixed px-3 py-2">
-      <i class="material-icons py-2">settings</i>
-    </a> -->
-            <div class="card shadow-lg">
-                <div class="card-header pb-0 pt-3">
-                    <div class="float-start">
-                        <h5 class="mt-3 mb-0">Material UI Configurator</h5>
-                        <p>See our dashboard options.</p>
-                    </div>
-                    <div class="float-end mt-4">
-                        <button class="btn btn-link text-dark p-0 fixed-plugin-close-button">
-                            <i class="material-icons">clear</i>
-                        </button>
-                    </div>
-                    <!-- End Toggle Button -->
-                </div>
-                <hr class="horizontal dark my-1">
-                <div class="card-body pt-sm-3 pt-0">
-                    <!-- Sidebar Backgrounds -->
-                    <div>
-                        <h6 class="mb-0">Sidebar Colors</h6>
-                    </div>
-                    <a href="javascript:void(0)" class="switch-trigger background-color">
-                        <div class="badge-colors my-2 text-start">
-                            <span class="badge filter bg-gradient-primary active" data-color="primary"
-                                onclick="sidebarColor(this)"></span>
-                            <span class="badge filter bg-gradient-dark" data-color="dark"
-                                onclick="sidebarColor(this)"></span>
-                            <span class="badge filter bg-gradient-info" data-color="info"
-                                onclick="sidebarColor(this)"></span>
-                            <span class="badge filter bg-gradient-success" data-color="success"
-                                onclick="sidebarColor(this)"></span>
-                            <span class="badge filter bg-gradient-warning" data-color="warning"
-                                onclick="sidebarColor(this)"></span>
-                            <span class="badge filter bg-gradient-danger" data-color="danger"
-                                onclick="sidebarColor(this)"></span>
-                        </div>
-                    </a>
-                    <!-- Sidenav Type -->
-                    <div class="mt-3">
-                        <h6 class="mb-0">Sidenav Type</h6>
-                        <p class="text-sm">Choose between 2 different sidenav types.</p>
-                    </div>
-                    <div class="d-flex">
-                        <button class="btn bg-gradient-dark px-3 mb-2 active" data-class="bg-gradient-dark"
-                            onclick="sidebarType(this)">Dark</button>
-                        <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-transparent"
-                            onclick="sidebarType(this)">Transparent</button>
-                        <button class="btn bg-gradient-dark px-3 mb-2 ms-2" data-class="bg-white"
-                            onclick="sidebarType(this)">White</button>
-                    </div>
-                    <p class="text-sm d-xl-none d-block mt-2">You can change the sidenav type just on desktop view.</p>
-                    <!-- Navbar Fixed -->
-                    <div class="mt-3 d-flex">
-                        <h6 class="mb-0">Navbar Fixed</h6>
-                        <div class="form-check form-switch ps-0 ms-auto my-auto">
-                            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="navbarFixed"
-                                onclick="navbarFixed(this)">
-                        </div>
-                    </div>
-                    <hr class="horizontal dark my-3">
-                    <div class="mt-2 d-flex">
-                        <h6 class="mb-0">Light / Dark</h6>
-                        <div class="form-check form-switch ps-0 ms-auto my-auto">
-                            <input class="form-check-input mt-1 ms-auto" type="checkbox" id="dark-version"
-                                onclick="darkMode(this)">
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </div>
-
-
-
 
 
         <!--   Core JS Files   -->

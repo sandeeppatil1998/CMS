@@ -304,7 +304,7 @@ module.exports.patientpriviousappointment = (req,res) => {
     const doctorId = decoded.ID;
     console.log("doctorId",doctorId);
   
-    conn.query("SELECT apt.id, apt.note AS complain, apt.patient_id, pti.issue, ut.name AS patient_name, bb.name AS doctor_name, pit.note, pit.medicine, pit.prescription_date FROM prescription_tbl AS pit JOIN appointment_tbl AS apt ON pit.appointment_id = apt.id JOIN user__tbl AS ut ON pit.patient_id = ut.id JOIN user__tbl AS bb ON pit.doctor_id = bb.id JOIN patient_issue_tbl AS pti ON pit.patient_id = pti.patient_id WHERE pit.patient_id = ? AND pit.doctor_id = ?;",[patient_id,doctorId], (err,results) => {
+    conn.query("SELECT apt.id AS appointment_id, apt.note AS complain, apt.patient_id, pti.issue,pit.side_effect, ut.name AS patient_name, bb.name AS doctor_name, pit.note, pit.medicine, pit.prescription_date FROM prescription_tbl AS pit JOIN appointment_tbl AS apt ON pit.appointment_id = apt.id JOIN user__tbl AS ut ON pit.patient_id = ut.id JOIN user__tbl AS bb ON pit.doctor_id = bb.id JOIN patient_issue_tbl AS pti ON pit.patient_id = pti.patient_id WHERE pit.patient_id = ? AND pit.doctor_id = ?;",[patient_id,doctorId], (err,results) => {
         if(err){
         console.log(err);
         res.json({message:"Something went wrong"});
